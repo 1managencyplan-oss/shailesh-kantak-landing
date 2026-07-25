@@ -93,7 +93,6 @@ img{max-width:100%;display:block;}
   max-width:1080px;margin:40px auto 0;
 }
 
-/* AGENCY TODO: replace this placeholder with Shailesh's real intro video (YouTube/Vimeo embed or hosted mp4) once assets are shared */
 .video-box{
   position:relative;border-radius:16px;overflow:hidden;
   background:#08201f;border:2px solid var(--teal-light);
@@ -101,6 +100,7 @@ img{max-width:100%;display:block;}
   aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;
 }
 .video-box .placeholder-inner{text-align:center;color:var(--muted);}
+.video-embed{position:absolute;inset:0;width:100%;height:100%;border:0;}
 .play-btn{
   width:74px;height:74px;border-radius:50%;background:rgba(20,184,166,0.9);
   display:flex;align-items:center;justify-content:center;margin:0 auto 14px;
@@ -407,11 +407,7 @@ footer a{color:var(--teal-light);}
 
   <div class="hero-grid">
     <div class="video-box">
-      <!-- AGENCY TODO: replace with Shailesh's real intro video once assets are shared -->
-      <div class="placeholder-inner">
-        <div class="play-btn"></div>
-        <div style="font-size:13px;">Intro video — to be added</div>
-      </div>
+      <iframe class="video-embed" src="https://player.vimeo.com/video/1211963281?h=017c036112&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Founder Freedom Masterclass — Intro"></iframe>
       <div class="video-caption">Own The Business. Not The Job.<small>Founder Freedom Masterclass</small></div>
     </div>
 
