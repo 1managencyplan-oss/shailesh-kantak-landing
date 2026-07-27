@@ -240,6 +240,17 @@ img{max-width:100%;display:block;}
 .section h2 .hl{color:var(--teal-light);}
 .section .lede{text-align:center;max-width:680px;margin:0 auto 36px;color:var(--muted);font-size:15px;line-height:1.7;}
 
+/* ── WHO THIS IS FOR ── */
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:980px;margin:0 auto;}
+@media(max-width:760px){.who-grid{grid-template-columns:1fr;}}
+.who-card{border-radius:14px;padding:26px 24px;border:1px solid var(--card-border);}
+.who-card.who-yes{background:rgba(20,184,166,0.08);border-color:rgba(94,234,212,0.4);}
+.who-card.who-no{background:rgba(255,255,255,0.02);border-color:var(--card-border);}
+.who-title{font-weight:900;font-size:16px;margin-bottom:16px;}
+.who-card ul{padding-left:20px;display:flex;flex-direction:column;gap:12px;}
+.who-card li{color:var(--text);font-size:14.5px;line-height:1.55;}
+.who-no li{color:var(--muted);}
+
 /* ── SECRETS / STEPS ── */
 .secrets-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1080px;margin:0 auto 36px;}
 @media(max-width:860px){.secrets-grid{grid-template-columns:1fr;}}
@@ -290,6 +301,12 @@ img{max-width:100%;display:block;}
 .t-card .video-frame{position:relative;width:100%;aspect-ratio:16/9;background:#08201f;}
 .t-card .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 .t-card .who{padding:12px 14px;font-size:13px;font-weight:800;color:var(--teal-light);}
+.t-card--pending{border-style:dashed;}
+.video-frame--pending{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  color:var(--muted);font-size:28px;text-align:center;
+}
+.video-frame--pending span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
 .t-card .who small{display:block;font-weight:600;font-size:11.5px;color:var(--muted);margin-top:2px;}
 .t-note{text-align:center;color:var(--muted);font-size:12.5px;margin-top:18px;max-width:640px;margin-left:auto;margin-right:auto;}
 
@@ -402,8 +419,8 @@ footer a{color:var(--teal-light);}
 </div>
 
 <section class="hero">
-  <h1>Learn The <span class="hl">HEART People Systems Framework</span> MSME Founders Use To Build A Business That Runs <span class="hl">Without Them</span> In Every Decision.</h1>
-  <p class="sub">Whether you're running a team of 5 or 300 — this isn't about working harder. It's about building the systems that let you finally step back, without the business falling apart. Even if you're the last decision-maker for everything right now.</p>
+  <h1>You Built The Business. <span class="hl">Now The Business Is Running You.</span></h1>
+  <p class="sub">Imagine a team that makes decisions without waiting for you, a business that keeps growing even when you step back, and getting your time back to actually lead — instead of firefighting all day. In 90 minutes, this masterclass shows you exactly how MSME founders make that shift.</p>
 
   <div class="hero-grid">
     <div class="video-box">
@@ -477,6 +494,33 @@ footer a{color:var(--teal-light);}
   <button type="button" class="enroll-btn" style="max-width:420px;margin:0 auto;">Reserve Your Seat — ₹99</button>
 </section>
 
+<section class="section" style="background:var(--bg2);">
+  <h2>Who This Masterclass Is <span class="hl">For</span></h2>
+  <p class="lede">Built specifically for MSME founders and business owners — not general leadership advice.</p>
+
+  <div class="who-grid">
+    <div class="who-card who-yes">
+      <div class="who-title">✅ This Is For You If</div>
+      <ul>
+        <li>You're an MSME founder or business owner with a team of 5 or more people</li>
+        <li>Every important decision still comes back to you, no matter how capable your team is</li>
+        <li>You want to build a team that takes real ownership — not one that waits to be told</li>
+        <li>You're ready to reduce how dependent the business is on you, and scale sustainably</li>
+        <li>Whether you have 10 employees or 100 — if you're the bottleneck, this is for you</li>
+      </ul>
+    </div>
+    <div class="who-card who-no">
+      <div class="who-title">🚫 This Is Not For You If</div>
+      <ul>
+        <li>You're a job seeker, student, or corporate employee not running your own business</li>
+        <li>You're a solo founder with no team — the framework is built around people systems</li>
+        <li>You're looking for generic motivation, not a structured system to implement</li>
+        <li>Your business is already running smoothly without you in every decision</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="section authority">
   <div class="kicker">LEARN FROM SOMEONE WHO'S LIVED THE FOUNDER TRAP</div>
   <h2>He Spent <span class="hl">8 Years</span> Being The Bottleneck In His Own Business — Before He Fixed It.</h2>
@@ -496,22 +540,19 @@ footer a{color:var(--teal-light);}
 
 <section class="section">
   <h2>What Founders Are <span class="hl">Saying</span></h2>
+  <!-- AGENCY TODO: Shailesh confirmed the 4 previous videos here were Inner Circle testimonials, not MSME India Network (MINT) testimonials. Removed. Swap in the 3-4 real MINT testimonial videos once he shares them — same .t-card / video-frame markup as before, just with new Vimeo src/hash + name/title in .who. -->
   <div class="t-grid">
-    <div class="t-card">
-      <div class="video-frame"><iframe src="https://player.vimeo.com/video/1200046855?h=a0978a42eb&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Gurram Uma Maheswara Rao"></iframe></div>
-      <div class="who">Gurram Uma Maheswara Rao<small>Managing Director, Gurram Venkateswaralu Textiles Pvt. Ltd.</small></div>
+    <div class="t-card t-card--pending">
+      <div class="video-frame video-frame--pending">🎥<span>MINT testimonial coming soon</span></div>
     </div>
-    <div class="t-card">
-      <div class="video-frame"><iframe src="https://player.vimeo.com/video/1200046854?h=5bfd4e286e&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Maulik"></iframe></div>
-      <div class="who">Maulik<small>MSME India Network</small></div>
+    <div class="t-card t-card--pending">
+      <div class="video-frame video-frame--pending">🎥<span>MINT testimonial coming soon</span></div>
     </div>
-    <div class="t-card">
-      <div class="video-frame"><iframe src="https://player.vimeo.com/video/1200046853?h=a10a78a249&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Chintan Savla"></iframe></div>
-      <div class="who">Chintan Savla<small>Owner, Kishore Kumar Sarees</small></div>
+    <div class="t-card t-card--pending">
+      <div class="video-frame video-frame--pending">🎥<span>MINT testimonial coming soon</span></div>
     </div>
-    <div class="t-card">
-      <div class="video-frame"><iframe src="https://player.vimeo.com/video/1200046852?h=f36543de78&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Sajith E."></iframe></div>
-      <div class="who">Sajith E.<small>Director, Benlycos Pvt. Ltd., Bangalore</small></div>
+    <div class="t-card t-card--pending">
+      <div class="video-frame video-frame--pending">🎥<span>MINT testimonial coming soon</span></div>
     </div>
   </div>
 </section>
