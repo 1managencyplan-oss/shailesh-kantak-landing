@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>The Founder Freedom Masterclass | Shailesh Kantak</title>
-<meta name="description" content="Live 90-minute masterclass: the HEART People Systems Framework MSME founders use to build a team that runs the business — without them in every decision. Just ₹99."/>
+<meta name="description" content="Live 90-120 minute masterclass: the HEART People Systems Framework MSME founders use to build a team that runs the business — without them in every decision. Just ₹99."/>
 <meta property="og:title" content="The Founder Freedom Masterclass — Shailesh Kantak"/>
 <meta property="og:description" content="Stop being the bottleneck in your own business. Live masterclass, ₹99."/>
 <meta property="og:type" content="website"/>
@@ -254,6 +254,19 @@ img{max-width:100%;display:block;}
 /* ── SECRETS / STEPS ── */
 .secrets-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1080px;margin:0 auto 36px;}
 @media(max-width:860px){.secrets-grid{grid-template-columns:1fr;}}
+.secrets-grid--five{grid-template-columns:repeat(5,1fr);max-width:1200px;}
+@media(max-width:1024px){.secrets-grid--five{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:640px){.secrets-grid--five{grid-template-columns:1fr;}}
+.secret-icon-letter{
+  width:64px;height:64px;border-radius:50%;margin-bottom:16px;
+  background:linear-gradient(135deg,var(--teal),var(--mint));
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;font-weight:900;color:#012521;
+  box-shadow:0 10px 24px rgba(20,184,166,.35);
+  transform:scale(0) rotate(-12deg);
+  transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+}
+.secret-card.revealed .secret-icon-letter{transform:scale(1) rotate(0deg);}
 .secret-card{
   background:var(--card);border:1px solid var(--card-border);border-radius:14px;
   padding:26px 22px;
@@ -328,6 +341,20 @@ img{max-width:100%;display:block;}
   background:var(--card);border:1px solid var(--card-border);border-radius:12px;
   padding:16px 20px;font-size:15px;line-height:1.6;
 }
+
+/* ── FREEBIES ── */
+.freebie-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;margin:0 auto;}
+@media(max-width:900px){.freebie-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.freebie-grid{grid-template-columns:1fr;}}
+.freebie-card{
+  background:var(--card);border:1px solid var(--card-border);border-radius:14px;
+  padding:22px 18px;text-align:center;transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.freebie-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(20,184,166,.14);border-color:var(--teal-light);}
+.freebie-ico{font-size:32px;margin-bottom:12px;}
+.freebie-card h3{font-size:16px;color:var(--teal-light);margin-bottom:8px;}
+.freebie-card p{font-size:13.5px;color:var(--muted);line-height:1.55;margin-bottom:14px;}
+.freebie-value{display:inline-block;background:var(--mint);color:#012521;font-weight:800;font-size:12px;padding:5px 12px;border-radius:20px;}
 
 /* ── FAQ ── */
 .faq-list{max-width:760px;margin:0 auto;}
@@ -420,7 +447,7 @@ footer a{color:var(--teal-light);}
 
 <section class="hero">
   <h1>You Built The Business. <span class="hl">Now The Business Is Running You.</span></h1>
-  <p class="sub">Imagine a team that makes decisions without waiting for you, a business that keeps growing even when you step back, and getting your time back to actually lead — instead of firefighting all day. In 90 minutes, this masterclass shows you exactly how MSME founders make that shift.</p>
+  <p class="sub">A team that runs without you. A business that keeps growing either way. Here's exactly how — live.</p>
 
   <div class="hero-grid">
     <div class="video-box">
@@ -442,7 +469,7 @@ footer a{color:var(--teal-light);}
         <div class="event-box highlight"><div class="ico">📅</div><div><div class="lbl">Date</div><div class="val">26 Jul 2026</div></div></div>
         <div class="event-box highlight"><div class="ico">⏰</div><div><div class="lbl">Time</div><div class="val">2:00 PM IST</div></div></div>
         <div class="event-box"><div class="ico">🗣️</div><div><div class="lbl">Language</div><div class="val">English</div></div></div>
-        <div class="event-box"><div class="ico">⭐</div><div><div class="lbl">Duration</div><div class="val">90 Mins</div></div></div>
+        <div class="event-box"><div class="ico">⭐</div><div><div class="lbl">Duration</div><div class="val">90–120 Mins</div></div></div>
       </div>
 
       <button type="button" class="enroll-btn">Reserve Your Seat — ₹99</button>
@@ -468,30 +495,45 @@ footer a{color:var(--teal-light);}
 </section>
 
 <section class="section">
-  <h2>What You'll Learn In <span class="hl">90 Minutes</span></h2>
-  <p class="lede">A live, working session — not another motivational talk. You leave with the framework, not just inspiration.</p>
+  <h2>What You'll Learn In <span class="hl">90–120 Minutes</span></h2>
+  <p class="lede">A live, working session — not another motivational talk. The full HEART People Systems Framework, pillar by pillar.</p>
 
-  <div class="secrets-grid">
+  <div class="secrets-grid secrets-grid--five">
     <div class="secret-card">
-      <div class="secret-icon"><img src="assets/shailesh-pointing.jpg" alt="Shailesh Kantak"/></div>
-      <span class="secret-tag">Step 1</span>
-      <h3>Hire &amp; Onboard Right</h3>
-      <p>The "H" in HEART — how to hire for ownership, not just skill, and onboard people so they take real responsibility from day one instead of defaulting to "ask the founder."</p>
+      <div class="secret-icon-letter">H</div>
+      <span class="secret-tag">Pillar 1</span>
+      <h3>Hiring &amp; Onboarding</h3>
+      <p>Hire for ownership, not just skill — and onboard people so they take real responsibility from day one instead of defaulting to "ask the founder."</p>
     </div>
     <div class="secret-card">
-      <div class="secret-icon"><img src="assets/shailesh-hands-clasped.jpg" alt="Shailesh Kantak"/></div>
-      <span class="secret-tag">Step 2</span>
-      <h3>Build The System, Not More Hustle</h3>
-      <p>The HEART People Systems Framework — Hiring and Onboarding, Engagement and Culture, Accountability and Performance, Retention and Empowerment, Training and Development — the exact structure that replaces founder-dependency with real ownership.</p>
+      <div class="secret-icon-letter">E</div>
+      <span class="secret-tag">Pillar 2</span>
+      <h3>Engagement &amp; Culture</h3>
+      <p>Build a culture that's designed, not accidental — one your team chooses to stay in, not one you have to constantly manage.</p>
     </div>
     <div class="secret-card">
-      <div class="secret-icon"><img src="assets/shailesh-arms-crossed.jpg" alt="Shailesh Kantak"/></div>
-      <span class="secret-tag">Step 3</span>
-      <h3>Run It On MINT-AXIS</h3>
-      <p>See how MINT-AXIS, our AI-enabled execution platform, turns the framework into real workflows your team can run — not ideas that sit in a notebook.</p>
+      <div class="secret-icon-letter">A</div>
+      <span class="secret-tag">Pillar 3</span>
+      <h3>Accountability &amp; Performance</h3>
+      <p>Clear KPIs, review cadences, and performance structures that make ownership automatic — not something you have to chase.</p>
+    </div>
+    <div class="secret-card">
+      <div class="secret-icon-letter">R</div>
+      <span class="secret-tag">Pillar 4</span>
+      <h3>Retention &amp; Empowerment</h3>
+      <p>Give your best people real reasons to stay — and the trust to lead — so you stop losing good people you can't afford to lose.</p>
+    </div>
+    <div class="secret-card">
+      <div class="secret-icon-letter">T</div>
+      <span class="secret-tag">Pillar 5</span>
+      <h3>Training &amp; Development</h3>
+      <p>Build the leaders you need from the people you already have — so growth doesn't depend on hiring your way out of every gap.</p>
     </div>
   </div>
-  <button type="button" class="enroll-btn" style="max-width:420px;margin:0 auto;">Reserve Your Seat — ₹99</button>
+  <p class="lede" style="margin-top:28px;margin-bottom:0;">See how MINT-AXIS, our AI-enabled execution platform, turns all 5 pillars into real workflows your team can run — not ideas that sit in a notebook.</p>
+  <div style="margin-top:24px;">
+    <button type="button" class="enroll-btn" style="max-width:420px;margin:0 auto;">Reserve Your Seat — ₹99</button>
+  </div>
 </section>
 
 <section class="section" style="background:var(--bg2);">
@@ -523,13 +565,13 @@ footer a{color:var(--teal-light);}
 
 <section class="section authority">
   <div class="kicker">LEARN FROM SOMEONE WHO'S LIVED THE FOUNDER TRAP</div>
-  <h2>He Spent <span class="hl">8 Years</span> Being The Bottleneck In His Own Business — Before He Fixed It.</h2>
+  <h2>He Spent <span class="hl">7 Years</span> Being The Bottleneck In His Own Business — Before He Fixed It.</h2>
 
   <div class="bio-wrap">
     <img class="bio-photo" src="assets/shailesh-headshot.jpg" alt="Shailesh Kantak"/>
     <div>
       <h3>Shailesh Kantak</h3>
-      <p>Three decades across corporate HR and entrepreneurship — including 8 years personally stuck exactly where you might be right now: the last decision-maker for everything, unable to trust the team to deliver without supervision.</p>
+      <p>Three decades across corporate HR and entrepreneurship — including 7 years personally stuck exactly where you might be right now: the last decision-maker for everything, unable to trust the team to deliver without supervision.</p>
       <p>He built the HEART People Systems Framework and MINT-AXIS to fix his own business first. Now he teaches it to MSME founders across the MSME India Network (MINT) community.</p>
     </div>
   </div>
@@ -572,13 +614,49 @@ footer a{color:var(--teal-light);}
   </div>
 </section>
 
+<section class="section" style="background:var(--bg2);">
+  <h2>Free Bonuses For <span class="hl">Every Attendee</span></h2>
+  <p class="lede">Stay for the full live session and get instant access to 4 free e-books — worth ₹5,487 — at the end of the masterclass.</p>
+  <!-- AGENCY TODO: confirm final e-book titles/value with Shailesh — these 4 are pulled from his existing bonus stack on events.shaileshkantak.com. Swap or adjust as needed. -->
+  <div class="freebie-grid">
+    <div class="freebie-card">
+      <div class="freebie-ico">🎁</div>
+      <h3>The MSME Hiring Playbook</h3>
+      <p>100 STAR interview questions to hire right the first time.</p>
+      <div class="freebie-value">Worth ₹1,467</div>
+    </div>
+    <div class="freebie-card">
+      <div class="freebie-ico">🎁</div>
+      <h3>The Culture Blueprint</h3>
+      <p>Build a team that owns their work — attract and retain top talent.</p>
+      <div class="freebie-value">Worth ₹1,315</div>
+    </div>
+    <div class="freebie-card">
+      <div class="freebie-ico">🎁</div>
+      <h3>Leadership By Design</h3>
+      <p>Create a personal leadership brand that inspires trust and drives results.</p>
+      <div class="freebie-value">Worth ₹1,648</div>
+    </div>
+    <div class="freebie-card">
+      <div class="freebie-ico">🎁</div>
+      <h3>The Delegation Playbook</h3>
+      <p>Get work done without chasing — build accountability that sticks.</p>
+      <div class="freebie-value">Worth ₹1,057</div>
+    </div>
+  </div>
+  <p class="lede" style="margin-top:24px;margin-bottom:0;font-weight:800;color:var(--mint);">Total value: ₹5,487 — yours free, just for attending live.</p>
+  <div style="margin-top:24px;">
+    <button type="button" class="enroll-btn" style="max-width:420px;margin:0 auto;">Reserve Your Seat — ₹99</button>
+  </div>
+</section>
+
 <section class="section">
   <h2>Frequently Asked Questions</h2>
   <p class="lede">All your burning questions, answered.</p>
   <div class="faq-list">
     <details class="faq-item">
       <summary>What will I learn in this masterclass?</summary>
-      <div class="faq-a">In 90 minutes, you'll learn the HEART People Systems Framework — Hiring and Onboarding, Engagement and Culture, Accountability and Performance, Retention and Empowerment, Training and Development — and see how MINT-AXIS turns it into real systems inside your business. It's the same framework Shailesh used to fix his own founder-dependency problem.</div>
+      <div class="faq-a">In 90–120 minutes, you'll learn the HEART People Systems Framework — Hiring and Onboarding, Engagement and Culture, Accountability and Performance, Retention and Empowerment, Training and Development — and see how MINT-AXIS turns it into real systems inside your business. It's the same framework Shailesh used to fix his own founder-dependency problem.</div>
     </details>
     <details class="faq-item">
       <summary>Will this actually work for a business my size?</summary>
