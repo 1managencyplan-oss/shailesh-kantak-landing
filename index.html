@@ -304,13 +304,19 @@ img{max-width:100%;display:block;}
 .authority .kicker{color:var(--muted);font-size:14px;margin-bottom:10px;letter-spacing:.5px;}
 .authority h2{max-width:820px;margin:0 auto 30px;}
 
-/* ── TESTIMONIALS ── */
-.t-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:920px;margin:0 auto;}
-@media(max-width:700px){.t-grid{grid-template-columns:1fr;}}
+/* ── TESTIMONIALS SLIDER ── */
+.t-slider-wrap{position:relative;max-width:1100px;margin:0 auto;}
+.t-grid{
+  display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:4px 4px 16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.t-grid::-webkit-scrollbar{display:none;}
 .t-card{
   background:var(--card);border:1px solid var(--card-border);border-radius:14px;
-  overflow:hidden;display:flex;flex-direction:column;
+  overflow:hidden;display:flex;flex-direction:column;flex:0 0 auto;
+  width:280px;scroll-snap-align:start;
 }
+@media(max-width:640px){.t-card{width:78vw;}}
 .t-card .video-frame{position:relative;width:100%;aspect-ratio:16/9;background:#08201f;}
 .t-card .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 .t-card .who{padding:12px 14px;font-size:13px;font-weight:800;color:var(--teal-light);}
@@ -321,6 +327,17 @@ img{max-width:100%;display:block;}
 }
 .video-frame--pending span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
 .t-card .who small{display:block;font-weight:600;font-size:11.5px;color:var(--muted);margin-top:2px;}
+.t-nav{
+  position:absolute;top:40%;transform:translateY(-50%);
+  width:38px;height:38px;border-radius:50%;border:1px solid var(--teal-light);
+  background:rgba(5,15,15,0.9);color:var(--mint);font-size:18px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;
+  transition:background .2s;
+}
+.t-nav:hover{background:rgba(20,184,166,0.3);}
+.t-nav-prev{left:-8px;}
+.t-nav-next{right:-8px;}
+@media(max-width:900px){.t-nav{display:none;}}
 .t-note{text-align:center;color:var(--muted);font-size:12.5px;margin-top:18px;max-width:640px;margin-left:auto;margin-right:auto;}
 
 /* ── FOUNDER BIO ── */
@@ -582,23 +599,43 @@ footer a{color:var(--teal-light);}
 
 <section class="section">
   <h2>What Founders Are <span class="hl">Saying</span></h2>
-  <!-- AGENCY TODO: from the 9 links Shailesh shared, 3 were confirmed Inner Circle testimonials (Gurram, Chintan Savla, Sajith E — same as the previously removed batch) and excluded. 1 (Maulik) was ambiguous (unlabeled, same name as a previously-removed Inner Circle video) and also excluded pending confirmation. These 4 (Payal, Manish, Dhanya, Kavitha) had no "Inner Circle" label — Manish and Dhanya match real names from his live events.shaileshkantak.com testimonials list, so used those titles/companies; confirm Payal and Kavitha's title/company and correct if any of these 4 are wrong. -->
-  <div class="t-grid">
-    <div class="t-card">
-      <div class="video-frame"><iframe src="https://player.vimeo.com/video/1215175346?h=611938a143&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Payal"></iframe></div>
-      <div class="who">Payal<small>MSME India Network</small></div>
-    </div>
-    <div class="t-card">
-      <div class="video-frame"><iframe src="https://player.vimeo.com/video/1215175344?h=c62ac0cad9&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Manish"></iframe></div>
-      <div class="who">Manish<small>CBO, Softmanage Solutions and Services Pvt Ltd</small></div>
-    </div>
-    <div class="t-card">
-      <div class="video-frame"><iframe src="https://player.vimeo.com/video/1215175408?h=945ba62dd8&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Dhanya Kumar"></iframe></div>
-      <div class="who">Ms. Dhanya Kumar<small>HR Head, Gallant Technical Solutions Pvt. Ltd</small></div>
-    </div>
-    <div class="t-card">
-      <div class="video-frame"><iframe src="https://player.vimeo.com/video/1215175392?h=5fc172a735&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Kavitha"></iframe></div>
-      <div class="who">Kavitha<small>MSME India Network</small></div>
+  <!-- AGENCY TODO: Manish and Dhanya's titles/companies match his real events.shaileshkantak.com testimonials list. Payal, Kavitha, Gurram, Chintan Savla, Sajith E, and Maulik only had first/last names from Vimeo — confirm titles/companies for these and correct if wrong. -->
+  <div class="t-slider-wrap">
+    <div class="t-nav t-nav-prev" onclick="scrollTestimonials(-1)">‹</div>
+    <div class="t-nav t-nav-next" onclick="scrollTestimonials(1)">›</div>
+    <div class="t-grid" id="t-grid">
+      <div class="t-card">
+        <div class="video-frame"><iframe src="https://player.vimeo.com/video/1215175346?h=611938a143&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Payal"></iframe></div>
+        <div class="who">Payal<small>MSME India Network</small></div>
+      </div>
+      <div class="t-card">
+        <div class="video-frame"><iframe src="https://player.vimeo.com/video/1215175344?h=c62ac0cad9&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Manish"></iframe></div>
+        <div class="who">Manish<small>CBO, Softmanage Solutions and Services Pvt Ltd</small></div>
+      </div>
+      <div class="t-card">
+        <div class="video-frame"><iframe src="https://player.vimeo.com/video/1215175408?h=945ba62dd8&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Dhanya Kumar"></iframe></div>
+        <div class="who">Ms. Dhanya Kumar<small>HR Head, Gallant Technical Solutions Pvt. Ltd</small></div>
+      </div>
+      <div class="t-card">
+        <div class="video-frame"><iframe src="https://player.vimeo.com/video/1215175392?h=5fc172a735&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Kavitha"></iframe></div>
+        <div class="who">Kavitha<small>MSME India Network</small></div>
+      </div>
+      <div class="t-card">
+        <div class="video-frame"><iframe src="https://player.vimeo.com/video/1215175487?h=49e0583d62&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Gurram"></iframe></div>
+        <div class="who">Gurram<small>MSME India Network — Inner Circle</small></div>
+      </div>
+      <div class="t-card">
+        <div class="video-frame"><iframe src="https://player.vimeo.com/video/1215175481?h=e33213afc1&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Chintan Savla"></iframe></div>
+        <div class="who">Chintan Savla<small>MSME India Network — Inner Circle</small></div>
+      </div>
+      <div class="t-card">
+        <div class="video-frame"><iframe src="https://player.vimeo.com/video/1215175467?h=3fdef20fd4&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Sajith E"></iframe></div>
+        <div class="who">Sajith E.<small>MSME India Network — Inner Circle</small></div>
+      </div>
+      <div class="t-card">
+        <div class="video-frame"><iframe src="https://player.vimeo.com/video/1215175434?h=f5a761e96f&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Testimonial — Maulik"></iframe></div>
+        <div class="who">Maulik<small>MSME India Network</small></div>
+      </div>
     </div>
   </div>
 </section>
@@ -852,6 +889,15 @@ footer a{color:var(--teal-light);}
 
     document.getElementById('modal-form-view').style.display = 'none';
     document.getElementById('modal-success-view').style.display = 'block';
+  }
+
+  // Testimonial slider nav buttons
+  function scrollTestimonials(dir){
+    const grid = document.getElementById('t-grid');
+    if (!grid) return;
+    const card = grid.querySelector('.t-card');
+    const step = card ? (card.getBoundingClientRect().width + 18) : 300;
+    grid.scrollBy({ left: dir * step * 2, behavior: 'smooth' });
   }
 
   // Staggered reveal animation for the "What You'll Learn" step cards
