@@ -848,6 +848,9 @@ footer a{color:var(--teal-light);}
     if (e.target === this) closeModal();
   });
 
+  // AGENCY: TagMango checkout — leads are redirected here to actually pay the ₹99
+  const TAGMANGO_CHECKOUT_URL = 'https://lead.msmeindianetwork.com/web/checkout/6a79ab6758a82355f5f2cfa6';
+
   function submitLead(e){
     e.preventDefault();
     const name  = document.getElementById('lead-name').value.trim();
@@ -866,7 +869,7 @@ footer a{color:var(--teal-light);}
 
     const btn = document.getElementById('lead-submit-btn');
     btn.disabled = true;
-    btn.innerHTML = '⏳ Registering...';
+    btn.innerHTML = '⏳ Redirecting to payment...';
 
     const leadData = { name, phone: '+91' + phone, email, business, plan: 'Founder Freedom Masterclass - ₹99', time: new Date().toISOString() };
 
@@ -885,8 +888,9 @@ footer a{color:var(--teal-light);}
       fetch(APPS_SCRIPT_URL + '?' + params.toString(), { method: 'GET', mode: 'no-cors', keepalive: true });
     }
 
-    document.getElementById('modal-form-view').style.display = 'none';
-    document.getElementById('modal-success-view').style.display = 'block';
+    // Redirect to TagMango checkout with prefilled details — 10-digit phone, no +91 prefix, per their URL format
+    const checkoutParams = new URLSearchParams({ name, phone, email, purchaseNow: 'true' });
+    window.location.href = TAGMANGO_CHECKOUT_URL + '?' + checkoutParams.toString();
   }
 
   // Testimonial slider nav buttons + auto-scroll
