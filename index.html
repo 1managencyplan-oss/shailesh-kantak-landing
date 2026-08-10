@@ -884,7 +884,7 @@ footer a{color:var(--teal-light);}
     } catch(err) {}
 
     if (APPS_SCRIPT_URL.indexOf('PASTE_') === -1) {
-      const params = new URLSearchParams({ name: leadData.name, phone: leadData.phone, email: leadData.email, business: leadData.business, plan: leadData.plan, status: 'Form Fill' });
+      const params = new URLSearchParams({ name: leadData.name, phone: leadData.phone, email: leadData.email, business: leadData.business, plan: leadData.plan, status: 'Form Fill', source_url: window.location.href });
       fetch(APPS_SCRIPT_URL + '?' + params.toString(), { method: 'GET', mode: 'no-cors', keepalive: true });
     }
 
