@@ -9,7 +9,6 @@ function doGet(e) {
     p.business || '',
     p.plan || '',
     p.status || 'Clicked to Pay',
-    'Meta Ad',
     p.source_url || ''
   ]);
   return ContentService.createTextOutput(JSON.stringify({status: 'ok'})).setMimeType(ContentService.MimeType.JSON);

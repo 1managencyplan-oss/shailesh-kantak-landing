@@ -112,6 +112,8 @@ h1 .hl{background:linear-gradient(90deg,var(--teal-light),var(--mint));
 .lede{text-align:center;color:var(--muted);font-size:15.5px;line-height:1.65;margin:14px auto 30px;max-width:470px;}
 
 .card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:22px;margin-bottom:18px;}
+/* the WhatsApp step sits in the first fold and is the primary action — give it weight */
+.card--primary{border-color:rgba(37,211,102,0.34);background:rgba(37,211,102,0.055);}
 
 .ev-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .ev-box{background:rgba(94,234,212,0.06);border:1px solid var(--card-border);
@@ -153,7 +155,18 @@ footer a{color:var(--teal-light);text-decoration:none;}
   <div class="tick">✓</div>
 
   <h1>You're In. <span class="hl">Seat Confirmed.</span></h1>
-  <p class="lede">Your payment went through and your seat for the Founder Freedom Masterclass is booked. Two quick steps below — do the first one now, it's how you get the joining link.</p>
+  <p class="lede">Your payment went through and your seat is booked. One thing left — join the WhatsApp group. That's where your joining link goes.</p>
+
+  <div class="card card--primary">
+    <span class="step-tag">STEP 1 — DO THIS NOW</span>
+    <h2>Join the WhatsApp group</h2>
+    <p>The live joining link, reminders, and your free e-book bonus all go out here. If you skip this, you may miss the session.</p>
+    <!-- AGENCY TODO: confirm with Shailesh that this is the correct group for the FFM funnel.
+         Pulled from the existing events.shaileshkantak.com page. -->
+    <a class="btn btn-wa" href="https://chat.whatsapp.com/CNiwCWhXoQl8q9rQlrRdDR" target="_blank" rel="noopener">
+      💬 Join The WhatsApp Group →
+    </a>
+  </div>
 
   <div class="card">
     <div class="ev-grid">
@@ -163,17 +176,6 @@ footer a{color:var(--teal-light);text-decoration:none;}
       <div class="ev-box"><div class="lbl">Language</div><div class="val">English</div></div>
       <div class="ev-box"><div class="lbl">Duration</div><div class="val">90–120 Mins</div></div>
     </div>
-  </div>
-
-  <div class="card">
-    <span class="step-tag">STEP 1 — DO THIS NOW</span>
-    <h2>Join the WhatsApp group</h2>
-    <p>The live joining link, reminders, and your free e-book bonus all go out here. If you skip this, you may miss the session.</p>
-    <!-- AGENCY TODO: confirm with Shailesh that this is the correct group for the FFM funnel.
-         Pulled from the existing events.shaileshkantak.com page. -->
-    <a class="btn btn-wa" href="https://chat.whatsapp.com/CNiwCWhXoQl8q9rQlrRdDR" target="_blank" rel="noopener">
-      💬 Join The WhatsApp Group →
-    </a>
   </div>
 
   <div class="card">
