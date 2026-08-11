@@ -865,9 +865,9 @@ footer a{color:var(--teal-light);}
 
     const leadData = { name, phone: '+91' + phone, email, business, plan: 'Founder Freedom Masterclass - ₹99', time: new Date().toISOString() };
 
-    if (typeof fbq !== 'undefined') {
-      fbq('track', 'Lead', {value: 99, currency: 'INR'});
-    }
+    // AGENCY: no pixel event fires on form submit. The only conversion for this
+    // funnel is Purchase, fired on the TagMango thank-you page after real payment.
+    // The form submit still writes the lead to the Google Sheet below.
 
     try {
       const leads = JSON.parse(localStorage.getItem('founderfreedom_leads') || '[]');
