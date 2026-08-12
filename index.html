@@ -469,10 +469,19 @@ footer a{color:var(--teal-light);}
   <p class="sub">A team that runs without you. A business that keeps growing either way. Here's exactly how — live.</p>
 
   <div class="hero-grid">
-    <div class="video-box">
-      <iframe class="video-embed" src="https://player.vimeo.com/video/1211963281?h=017c036112&title=0&byline=0&portrait=0" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Founder Freedom Masterclass — Intro"></iframe>
+    <div class="video-box" id="hero-video-box" style="background-image:url('https://i.vimeocdn.com/video/2182264590-cc3fe0ccddeabcee6ff571a45eddaf84feb10777e5ad5aefe138341167fd52a7-d_1280?region=us');background-size:cover;background-position:center;cursor:pointer;" onclick="playHeroVideo()">
+      <div class="play-btn"></div>
       <div class="video-caption">Own The Business. Not The Job.<small>Founder Freedom Masterclass</small></div>
     </div>
+    <!-- AGENCY: hero video loads as a static poster image (fast, no third-party iframe on initial load) —
+         the real Vimeo player only loads on click. This fixed a ~11s mobile LCP caused by loading the
+         Vimeo iframe (its own JS bundle + thumbnail round-trip) as the first thing on the page. -->
+    <script>
+      function playHeroVideo(){
+        var box = document.getElementById('hero-video-box');
+        box.outerHTML = '<div class="video-box"><iframe class="video-embed" src="https://player.vimeo.com/video/1211963281?h=017c036112&title=0&byline=0&portrait=0&autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Founder Freedom Masterclass — Intro"></iframe></div>';
+      }
+    </script>
 
     <div class="side-panel">
       <div class="gift-line">🎁 Free Bonus: E-Book — Building A Business That Doesn't Depend On You</div>
@@ -587,7 +596,7 @@ footer a{color:var(--teal-light);}
   <h2>He Spent <span class="hl">7 Years</span> Being The Bottleneck In His Own Business — Before He Fixed It.</h2>
 
   <div class="bio-wrap">
-    <img class="bio-photo" src="assets/shailesh-headshot.jpg" alt="Shailesh Kantak"/>
+    <img class="bio-photo" src="assets/shailesh-headshot-web.jpg" alt="Shailesh Kantak" loading="lazy"/>
     <div>
       <h3>Shailesh Kantak</h3>
       <p>Three decades across corporate HR and entrepreneurship — including 7 years personally stuck exactly where you might be right now: the last decision-maker for everything, unable to trust the team to deliver without supervision.</p>
