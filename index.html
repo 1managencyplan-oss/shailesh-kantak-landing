@@ -351,6 +351,11 @@ footer a{color:var(--teal-dark);}
   width:auto;padding:12px 22px;font-size:14px;box-shadow:none;
 }
 .sticky-btn small{font-size:10.5px;font-weight:700;opacity:.85;}
+@media(max-width:640px){
+  .sticky{flex-direction:column;align-items:stretch;gap:10px;padding:12px 16px;}
+  .sticky-center{flex:none;}
+  .sticky-btn{width:100%;text-align:center;}
+}
 
 /* ── MODAL ── */
 #lead-modal{
